@@ -20,6 +20,7 @@ var pi = 4; //에러 발생.(같은 이름 사용)
 #### let ####
 - 가장 가까운 블록 내에서, 그리고 중첩된 모든 하위 블록에서 유효하다.
 - 우리가 평소에 쓰던 언어와 비슷한 유효범위
+- 아직 표준은 아님
 - Javascript 1.7 이상에서 가능.
 
 ```
@@ -54,4 +55,44 @@ for(let x = x + 1; x < 5; x++)
    let x = x + 1; //x는 undefined 이기 때문에, x는 NaN이다.
    console.log(x); //NaN을 출력한다.
 }
+```
+```
+let x=1, y=2;
+let (x=x+1, y=x+2)
+{
+    console.log(x+y); //print 5
+};
+console.log(x+y); //print 3
+```
+```
+let x=1, y=2;
+console.log(let (x=x+1, y=x+2) x+y); // print 5
+console.log(x+y); // print 3
+```
+
+#### 해체할당 ####
+- 등호의 오른쪽에서 하나 이상의 값이 추출('해체')되어, 등호의 왼쪽에 지정된 변수로 저장된다.
+
+```
+//배열 사용
+let [x,y] = [1,2]; // let x=1, y=2
+[x,y] = [x+1, y+1]; // x=x+1, y=y+1
+[x,y] = [y,x]; // chage value
+console.log([x,y]); // print [3,2]
+```
+```
+// [x,y] 좌표를 [r, theta] 극좌표로 변환.
+function polar(x,y)
+{
+    return [Math.sqrt(x*x + y*y), Math.atan2(y,x)];
+}
+
+//극좌표를 데카르트 좌표계로 변환.
+function cartesian(r, theta)
+{
+    return [r * Math.cos(theta), r * Math.sin(theta)];
+}
+
+let [r,theta] = polar(1.0, 1.0);
+let [x,y] = cartesian(r,theta);
 ```
