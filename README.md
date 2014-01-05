@@ -10,11 +10,30 @@
 - 상수를 재정의 하려하면, 에러를 발생시킨다.
 - Javascript 1.5 이상에서 사용가능
 
+```
+const pi = 3.14; //상수정의
+pi = 4; //무시
+const pi = 4; //에러 발생.(상수 재정의)
+var pi = 4; //에러 발생.(같은 이름 사용)
+```
 
-    "'
-    const pi = 3.14; //상수정의
-    pi = 4; //무시
-    const pi = 4; //에러 발생.(상수 재정의)
-    var pi = 4; //에러 발생.(같은 이름 사용)
-    "'
+#### let ####
+- 가장 가까운 블록 내에서, 그리고 중첩된 모든 하위 블록에서 유효하다.
 
+```
+function oddsums(n)
+{
+    let total = 0, result=[];
+    for(let x = 1; x <= n; x++)
+    {
+        let odd = 2 * x - 1;
+        total += odd;
+        result.push(total);
+    }
+    console.log("total =", total);
+    //console.log("add = ", add); //Error
+    return result;
+}
+
+oddsums(5);
+```
