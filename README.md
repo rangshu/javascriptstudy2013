@@ -46,3 +46,12 @@ for each(let v in o) console.log(v);
 console.log(p); //Error
 console.log(v); //Error
 ```
+```
+let x = 1;
+for(let x = x + 1; x < 5; x++)
+    console.log(x);
+{
+   let x = x + 1; //x는 undefined 이기 때문에, x는 NaN이다.
+   console.log(x); //NaN을 출력한다.
+}
+```
