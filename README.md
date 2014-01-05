@@ -39,3 +39,10 @@ function oddsums(n)
 
 oddsums(5);
 ```
+```
+o = {x:1, y:2};
+for(let p in o) console.log(p);
+for each(let v in o) console.log(v);
+console.log(p); //Error
+console.log(v); //Error
+```
